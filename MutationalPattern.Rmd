@@ -14,12 +14,6 @@ BiocManager::install("MutationalPatterns")
 BiocManager::install("BSgenome.Hsapiens.1000genomes.hs37d5")
 BiocManager::install("BSgenome.Hsapiens.UCSC.hg19.masked")
 BiocManager::install("gridExtra")
-
-```
-
-
-```{r}
-library(BSgenome)
 #available.genomes()
 BiocManager::install("BSgenome.Hsapiens.UCSC.hg19")
 ref_genome <- "BSgenome.Hsapiens.UCSC.hg19"
@@ -51,11 +45,8 @@ summary(vcfs)
 
 ```{r}
 muts = mutations_from_vcf(vcfs[[1]])
-#head(muts, 12)
 types = mut_type(vcfs[[1]])
-#head(types, 12)
 context = mut_context(vcfs[[1]], ref_genome)
-#head(context, 12)
 
 type_context = type_context(vcfs[[1]], ref_genome)
 lapply(type_context, head, 30)
@@ -73,23 +64,23 @@ library("gridExtra")
 library(ggplot2)
 library(RColorBrewer)
 cols <- brewer.pal(7, "Pastel1")
-p1 <- plot_spectrum(type_occurrences1,colors =cols)
-p2 <- plot_spectrum(type_occurrences1, CT = TRUE,colors =cols)
-p3 <- plot_spectrum(type_occurrences1, CT = TRUE, legend = FALSE,colors =cols)
+#p1 <- plot_spectrum(type_occurrences1,colors =cols)
+#p2 <- plot_spectrum(type_occurrences1, CT = TRUE,colors =cols)
+#p3 <- plot_spectrum(type_occurrences1, CT = TRUE, legend = FALSE,colors =cols)
 ```
 
 
 ```{r}
-grid.arrange(p1, p2, p3, ncol=3, widths=c(4,4,1.75))
-p1
-p2
-p3
+#grid.arrange(p1, p2, p3, ncol=3, widths=c(4,4,1.75))
+#p1
+#p2
+#p3
 ```
 
 ```{r}
-p4 <- plot_spectrum(type_occurrences1, CT = TRUE, legend = TRUE)
+#p4 <- plot_spectrum(type_occurrences1, CT = TRUE, legend = TRUE)
 p5 <- plot_spectrum(type_occurrences1, CT=TRUE, legend=TRUE, colors=cols)
-grid.arrange(p4, p5, ncol=2, widths=c(4,4))
+#grid.arrange(p4, p5, ncol=2, widths=c(4,4))
 p5
 ```
 
