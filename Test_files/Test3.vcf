@@ -1,0 +1,206 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##DRAGENCommandLine=<ID=HashTableBuild,Version="SW: 01.003.044.3.5.7, HashTableVersion: 8",CommandLineOptions="dragen --build-hash-table true --ht-reference /staging/human/reference/hg38/hg38.fa --ht-alt-liftover /opt/edico/liftover/bwa-kit_hs38DH_liftover.sam --output-dir /work2/lynn88065/Dragen/reference/hg38.fa.k_21.f_16.m_149_v3.5.7/ --ht-num-threads=40 --enable-cnv=true --enable-rna=true">
+##DRAGENCommandLine=<ID=dragen,Version="SW: 07.021.510.3.5.7, HW: 07.021.510",Date="Tue Jun 09 15:31:28 CST 2020",CommandLineOptions="-f -r /work2/lynn88065/Dragen/reference/v3.5.7/hg38.fa.k_21.f_16.m_149 --output-directory /work2/u1067478/DRAGEN/Outputs/CGMH/CLL/WES/som/hg38/CGMH_CLL_040_WES-Dx-oral --output-file-prefix Dragen_CGMH_CLL_040_WES-Dx-oral --tumor-fastq1 /work2/u00srx00/Rawdata/20190607_CGMH_CLL/040/WES/CGMH_CLL_040_WES.r1.fastq.gz --tumor-fastq2 /work2/u00srx00/Rawdata/20190607_CGMH_CLL/040/WES/CGMH_CLL_040_WES.r2.fastq.gz --RGSM-tumor CGMH_CLL_040_WES_T --RGID-tumor NovaSeq_T -1 /work2/u00srx00/Rawdata/20190607_CGMH_CLL/040_oral/WES/CGMH_CLL_040_oral_WES.r1.fastq.gz -2 /work2/u00srx00/Rawdata/20190607_CGMH_CLL/040_oral/WES/CGMH_CLL_040_oral_WES.r2.fastq.gz --RGSM CGMH_CLL_040_WES_N --RGID NovaSeq_N --vc-target-bed /work2/u1067478/Rawdata/Agilent_CRE_V2_hg38/Agilent_CRE_V2_hg38_Regions.bed --vc-enable-liquid-tumor-mode true --vc-tin-contam-tolerance 0.05 --enable-variant-caller true --enable-map-align-output true --generate-md-tags true --generate-zs-tags true --enable-duplicate-marking true --output-format cram --cram-reference /work2/lynn88065/Dragen/reference/v3.5.7/hg38.fa.k_21.f_16.m_149/hg38.fa --enable-sv true">
+##FILTER=<ID=alt_allele_in_normal,Description="ALT allele frequency is too high in the normal sample">
+##FILTER=<ID=base_quality,Description="Site filtered because median base quality of alt reads at this locus does not meet threshold">
+##FILTER=<ID=filtered_reads,Description="Site filtered because too large a fraction of reads have been filtered out">
+##FILTER=<ID=fragment_length,Description="Site filtered because absolute difference between the median fragment length of alt reads and median fragment length of ref reads at this locus exceeds threshold">
+##FILTER=<ID=mapping_quality,Description="Site filtered because median mapping quality of alt reads at this locus does not meet threshold">
+##FILTER=<ID=multiallelic,Description="Site filtered because more than two alt alleles pass tumor LOD">
+##FILTER=<ID=no_reliable_supporting_read,Description="Site filtered because no reliable supporting somatic read exists">
+##FILTER=<ID=noisy_normal,Description="Site filtered because too many alleles are observed in the normal sample">
+##FILTER=<ID=non_homref_normal,Description="Site filtered because the normal sample genotype is not homozygous reference">
+##FILTER=<ID=panel_of_normals,Description="Seen in at least one sample in the panel of normals vcf">
+##FILTER=<ID=read_position,Description="Site filtered because median of distances between start/end of read and this locus exceeds threshold">
+##FILTER=<ID=str_contraction,Description="Site filtered due to suspected PCR error where the alt allele is one repeat unit less than the reference">
+##FILTER=<ID=strand_artifact,Description="Site filtered because of severe strand bias">
+##FILTER=<ID=too_few_supporting_reads,Description="Site filtered because there are too few supporting reads in the tumor sample">
+##FILTER=<ID=weak_evidence,Description="Somatic variant score does not meet threshold">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths (counting only informative reads out of the total reads) for the ref and alt alleles in the order listed">
+##FORMAT=<ID=AF,Number=A,Type=Float,Description="Allele fractions for alt alleles in the order listed">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth (reads with MQ=255 or with bad mates are filtered)">
+##FORMAT=<ID=F1R2,Number=R,Type=Integer,Description="Count of reads in F1R2 pair orientation supporting each allele">
+##FORMAT=<ID=F2R1,Number=R,Type=Integer,Description="Count of reads in F2R1 pair orientation supporting each allele">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=MB,Number=4,Type=Integer,Description="Per-sample component statistics to detect mate bias">
+##FORMAT=<ID=PS,Number=1,Type=Integer,Description="Physical phasing ID information, where each unique ID within a given sample (but not across samples) connects records within a phasing group">
+##FORMAT=<ID=SB,Number=4,Type=Integer,Description="Per-sample component statistics which comprise the Fisher's Exact Test to detect strand bias">
+##FORMAT=<ID=SQ,Number=1,Type=Float,Description="Somatic quality">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth (informative and non-informative); some reads may have been filtered based on mapq etc.">
+##INFO=<ID=FractionInformativeReads,Number=1,Type=Float,Description="The fraction of informative reads out of the total reads">
+##INFO=<ID=MQ,Number=1,Type=Float,Description="RMS Mapping Quality">
+##INFO=<ID=MQRankSum,Number=1,Type=Float,Description="Z-score From Wilcoxon rank sum test of Alt vs. Ref read mapping qualities">
+##INFO=<ID=NLOD,Number=A,Type=Float,Description="Normal LOD score">
+##INFO=<ID=ReadPosRankSum,Number=1,Type=Float,Description="Z-score from Wilcoxon rank sum test of Alt vs. Ref read position bias">
+##INFO=<ID=ReverseComplementedAlleles,Number=0,Type=Flag,Description="The REF and the ALT alleles have been reverse complemented in liftover since the mapping from the previous reference to the current one was on the negative strand.">
+##INFO=<ID=SwappedAlleles,Number=0,Type=Flag,Description="The REF and the ALT alleles have been swapped in liftover due to changes in the reference. It is possible that not all INFO annotations reflect this swap, and in the genotypes, only the GT, PL, and AD fields have been modified. You should check the TAGS_TO_REVERSE parameter that was used during the LiftOver to be sure.">
+##INFO=<ID=TLOD,Number=A,Type=Float,Description="Tumor LOD score">
+##contig=<ID=chrM,length=16571>
+##contig=<ID=chr1,length=249250621>
+##contig=<ID=chr2,length=243199373>
+##contig=<ID=chr3,length=198022430>
+##contig=<ID=chr4,length=191154276>
+##contig=<ID=chr5,length=180915260>
+##contig=<ID=chr6,length=171115067>
+##contig=<ID=chr7,length=159138663>
+##contig=<ID=chr8,length=146364022>
+##contig=<ID=chr9,length=141213431>
+##contig=<ID=chr10,length=135534747>
+##contig=<ID=chr11,length=135006516>
+##contig=<ID=chr12,length=133851895>
+##contig=<ID=chr13,length=115169878>
+##contig=<ID=chr14,length=107349540>
+##contig=<ID=chr15,length=102531392>
+##contig=<ID=chr16,length=90354753>
+##contig=<ID=chr17,length=81195210>
+##contig=<ID=chr18,length=78077248>
+##contig=<ID=chr19,length=59128983>
+##contig=<ID=chr20,length=63025520>
+##contig=<ID=chr21,length=48129895>
+##contig=<ID=chr22,length=51304566>
+##contig=<ID=chrX,length=155270560>
+##contig=<ID=chrY,length=59373566>
+##contig=<ID=chr1_gl000191_random,length=106433>
+##contig=<ID=chr1_gl000192_random,length=547496>
+##contig=<ID=chr4_ctg9_hap1,length=590426>
+##contig=<ID=chr4_gl000193_random,length=189789>
+##contig=<ID=chr4_gl000194_random,length=191469>
+##contig=<ID=chr6_apd_hap1,length=4622290>
+##contig=<ID=chr6_cox_hap2,length=4795371>
+##contig=<ID=chr6_dbb_hap3,length=4610396>
+##contig=<ID=chr6_mann_hap4,length=4683263>
+##contig=<ID=chr6_mcf_hap5,length=4833398>
+##contig=<ID=chr6_qbl_hap6,length=4611984>
+##contig=<ID=chr6_ssto_hap7,length=4928567>
+##contig=<ID=chr7_gl000195_random,length=182896>
+##contig=<ID=chr8_gl000196_random,length=38914>
+##contig=<ID=chr8_gl000197_random,length=37175>
+##contig=<ID=chr9_gl000198_random,length=90085>
+##contig=<ID=chr9_gl000199_random,length=169874>
+##contig=<ID=chr9_gl000200_random,length=187035>
+##contig=<ID=chr9_gl000201_random,length=36148>
+##contig=<ID=chr11_gl000202_random,length=40103>
+##contig=<ID=chr17_ctg5_hap1,length=1680828>
+##contig=<ID=chr17_gl000203_random,length=37498>
+##contig=<ID=chr17_gl000204_random,length=81310>
+##contig=<ID=chr17_gl000205_random,length=174588>
+##contig=<ID=chr17_gl000206_random,length=41001>
+##contig=<ID=chr18_gl000207_random,length=4262>
+##contig=<ID=chr19_gl000208_random,length=92689>
+##contig=<ID=chr19_gl000209_random,length=159169>
+##contig=<ID=chr21_gl000210_random,length=27682>
+##contig=<ID=chrUn_gl000211,length=166566>
+##contig=<ID=chrUn_gl000212,length=186858>
+##contig=<ID=chrUn_gl000213,length=164239>
+##contig=<ID=chrUn_gl000214,length=137718>
+##contig=<ID=chrUn_gl000215,length=172545>
+##contig=<ID=chrUn_gl000216,length=172294>
+##contig=<ID=chrUn_gl000217,length=172149>
+##contig=<ID=chrUn_gl000218,length=161147>
+##contig=<ID=chrUn_gl000219,length=179198>
+##contig=<ID=chrUn_gl000220,length=161802>
+##contig=<ID=chrUn_gl000221,length=155397>
+##contig=<ID=chrUn_gl000222,length=186861>
+##contig=<ID=chrUn_gl000223,length=180455>
+##contig=<ID=chrUn_gl000224,length=179693>
+##contig=<ID=chrUn_gl000225,length=211173>
+##contig=<ID=chrUn_gl000226,length=15008>
+##contig=<ID=chrUn_gl000227,length=128374>
+##contig=<ID=chrUn_gl000228,length=129120>
+##contig=<ID=chrUn_gl000229,length=19913>
+##contig=<ID=chrUn_gl000230,length=43691>
+##contig=<ID=chrUn_gl000231,length=27386>
+##contig=<ID=chrUn_gl000232,length=40652>
+##contig=<ID=chrUn_gl000233,length=45941>
+##contig=<ID=chrUn_gl000234,length=40531>
+##contig=<ID=chrUn_gl000235,length=34474>
+##contig=<ID=chrUn_gl000236,length=41934>
+##contig=<ID=chrUn_gl000237,length=45867>
+##contig=<ID=chrUn_gl000238,length=39939>
+##contig=<ID=chrUn_gl000239,length=33824>
+##contig=<ID=chrUn_gl000240,length=41933>
+##contig=<ID=chrUn_gl000241,length=42152>
+##contig=<ID=chrUn_gl000242,length=43523>
+##contig=<ID=chrUn_gl000243,length=43341>
+##contig=<ID=chrUn_gl000244,length=39929>
+##contig=<ID=chrUn_gl000245,length=36651>
+##contig=<ID=chrUn_gl000246,length=38154>
+##contig=<ID=chrUn_gl000247,length=36422>
+##contig=<ID=chrUn_gl000248,length=39786>
+##contig=<ID=chrUn_gl000249,length=38502>
+##reference=file:///work2/lynn88065/Dragen/reference/v3.5.7/hg38.fa.k_21.f_16.m_149/reference.bin
+##INFO=<ID=OLD_MULTIALLELIC,Number=1,Type=String,Description="Original chr:pos:ref:alt encoding">
+##INFO=<ID=OLD_VARIANT,Number=.,Type=String,Description="Original chr:pos:ref:alt encoding">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	CGMH_CLL_040_WES_N	CGMH_CLL_040_WES_T
+chr1	19443718	.	T	G	.	PASS	DP=73;FractionInformativeReads=1;MQ=50.15;NLOD=37.76;TLOD=40.44	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:37.76:22,0:0:10,0:12,0:22:.:.	0/1:40.44:35,16:0.314:14,4:21,12:51:28,7,15,1:19,16,5,11
+chr1	19443766	.	T	C	.	PASS	DP=120;FractionInformativeReads=1;MQ=48.37;NLOD=77.94;TLOD=36.58	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:77.94:42,0:0:19,0:23,0:42:.:.	0/1:36.58:53,25:0.321:19,9:34,16:78:42,11,25,0:24,29,9,16
+chr1	19443836	.	T	G	.	PASS	DP=157;FractionInformativeReads=1;MQ=48.12;NLOD=99.67;TLOD=88.72	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:99.67:56,0:0:23,0:33,0:56:.:.	0/1:88.72:67,34:0.337:28,15:39,19:101:42,25,19,15:27,40,22,12
+chr1	115256529	.	T	A	.	PASS	DP=199;FractionInformativeReads=1;MQ=49.78;NLOD=48.92;TLOD=37.69	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:48.92:62,0:0:32,0:30,0:62:.:.	0/1:37.69:122,15:0.109:46,5:76,10:137:47,75,6,9:65,57,8,7
+chr1	151337181	.	C	G	.	PASS	DP=147;FractionInformativeReads=1;MQ=48.49;NLOD=35.33;TLOD=23.3	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:35.33:51,0:0:29,0:22,0:51:.:.	0/1:23.3:90,6:0.062:40,4:50,2:96:41,49,1,5:55,35,1,5
+chr1	153520821	.	C	T	.	PASS	DP=145;FractionInformativeReads=1;MQ=45.94;NLOD=111.88;TLOD=99.28	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:111.88:60,0:0:30,0:30,0:60:.:.	0/1:99.28:53,32:0.376:24,14:29,18:85:43,10,28,4:28,25,12,20
+chr2	74598191	.	A	T	.	PASS	DP=109;FractionInformativeReads=1;MQ=46.69;NLOD=39.86;TLOD=28.6	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:39.86:43,0:0:26,0:17,0:43:.:.	0/1:28.6:59,7:0.106:33,3:26,4:66:49,10,6,1:37,22,4,3
+chr2	141093208	.	G	A	.	PASS	DP=183;FractionInformativeReads=1;MQ=48.38;NLOD=52.15;TLOD=40.92	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:52.15:64,0:0:25,0:39,0:64:.:.	0/1:40.92:105,14:0.118:35,6:70,8:119:79,26,10,4:39,66,4,10
+chr2	219738548	.	A	T	.	PASS	DP=94;FractionInformativeReads=0.979;MQ=39.14;NLOD=60.49;TLOD=49.26	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:60.49:53,0:0:27,0:26,0:53:.:.	0/1:49.26:30,9:0.231:11,2:19,7:39:12,18,5,4:19,11,2,7
+chr3	38182641	.	T	C	.	PASS	DP=205;FractionInformativeReads=1;MQ=49.76;NLOD=974.77;TLOD=117.38	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:974.77:64,0:0:31,0:33,0:64:.:.	0/1:117.38:87,54:0.383:37,20:50,34:141:77,10,42,12:41,46,26,28
+chr3	53853041	.	C	T	.	PASS	DP=252;FractionInformativeReads=1;MQ=47.06;NLOD=69.71;TLOD=58.48	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:69.71:97,0:0:40,0:57,0:97:.:.	0/1:58.48:135,20:0.129:42,12:93,8:155:64,71,9,11:67,68,9,11
+chr3	130162394	.	C	T	.	PASS	DP=220;FractionInformativeReads=1;MQ=47.35;NLOD=69.3;TLOD=58.07	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:69.3:83,0:0:35,0:48,0:83:.:.	0/1:58.07:118,19:0.139:49,4:69,15:137:37,81,9,10:62,56,8,11
+chr3	161214798	.	C	A	.	PASS	DP=413;FractionInformativeReads=0.998;MQ=50.45;NLOD=974.77;TLOD=131.05	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:974.77:121,0:0:56,0:65,0:121:.:.	0/1:131.05:220,71:0.244:85,27:135,44:291:120,100,46,25:111,109,32,39
+chr4	55138611	.	G	C	.	PASS	DP=113;FractionInformativeReads=1;MQ=49.53;NLOD=44.4;TLOD=33.17	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:44.4:36,0:0:11,0:25,0:36:.:.	0/1:33.17:65,12:0.156:16,5:49,7:77:32,33,3,9:41,24,8,4
+chr4	146042330	.	G	A	.	PASS	DP=48;FractionInformativeReads=1;MQ=45.83;NLOD=29.34;TLOD=29.02	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:29.34:20,0:0:12,0:8,0:20:.:.	0/1:29.02:20,8:0.286:9,4:11,4:28:18,2,8,0:9,11,4,4
+chr4	188924697	.	C	T	.	PASS	DP=190;FractionInformativeReads=1;MQ=47.48;NLOD=38.61;TLOD=27.3	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:38.61:71,0:0:31,0:40,0:71:.:.	0/1:27.3:113,6:0.05:47,4:66,2:119:52,61,2,4:64,49,2,4
+chr5	81283599	.	A	G	.	PASS	DP=40;FractionInformativeReads=1;MQ=50.2;NLOD=14.26;TLOD=17.67	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:14.26:12,0:0:4,0:8,0:12:.:.	0/1:17.67:22,6:0.214:9,0:13,6:28:0,22,0,6:13,9,6,0
+chr6	26156745	.	C	G	.	PASS	DP=196;FractionInformativeReads=0.995;MQ=46.36;NLOD=974.77;TLOD=136.1	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:974.77:79,0:0:33,0:46,0:79:.:.	0/1:136.1:70,46:0.397:22,18:48,28:116:52,18,33,13:32,38,23,23
+chr6	26156929	.	C	T	.	PASS	DP=175;FractionInformativeReads=1;MQ=50.1;NLOD=107.69;TLOD=95.94	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:107.69:53,0:0:18,0:35,0:53:.:.	0/1:95.94:78,44:0.361:28,18:50,26:122:43,35,21,23:27,51,21,23
+chr6	39159382	.	G	A	.	PASS	DP=185;FractionInformativeReads=1;MQ=49.91;NLOD=35.07;TLOD=23.71	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:35.07:57,0:0:30,0:27,0:57:.:.	0/1:23.71:124,4:0.031:45,1:79,3:128:67,57,2,2:56,68,3,1
+chr7	21745109	.	G	A	.	PASS	DP=224;FractionInformativeReads=1;MQ=46.92;NLOD=103.49;TLOD=90.99	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:103.49:87,0:0:44,0:43,0:87:.:.	0/1:90.99:104,33:0.241:37,10:67,23:137:42,62,17,16:57,47,16,17
+chr7	99273797	.	G	A	.	PASS	DP=213;FractionInformativeReads=0.995;MQ=51.84;NLOD=32.68;TLOD=21.45	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:32.68:53,1:0.019:18,0:35,1:54:.:.	0/1:21.45:153,5:0.032:63,2:90,3:158:108,45,3,2:72,81,2,3
+chr7	108155882	.	T	G	.	PASS	DP=200;FractionInformativeReads=0.99;MQ=50.38;NLOD=57.19;TLOD=45.95	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:57.19:58,0:0:23,0:35,0:58:.:.	0/1:45.95:119,21:0.15:41,7:78,14:140:38,81,4,17:72,47,14,7
+chr7	123593938	.	T	C	.	PASS	DP=352;FractionInformativeReads=1;MQ=50.06;NLOD=974.77;TLOD=200.04	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:974.77:107,0:0:47,0:60,0:107:.:.	0/1:200.04:147,98:0.4:49,27:98,71:245:71,76,51,47:69,78,42,56
+chr9	103348203	.	A	T	.	PASS	DP=321;FractionInformativeReads=1;MQ=49.9;NLOD=44.23;TLOD=32.99	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:44.23:99,0:0:32,0:67,0:99:.:.	0/1:32.99:216,6:0.027:78,2:138,4:222:107,109,4,2:105,111,2,4
+chr9	114305227	.	C	T	.	PASS	DP=333;FractionInformativeReads=0.997;MQ=49.97;NLOD=43.21;TLOD=31.78	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:43.21:101,1:0.01:48,0:53,1:102:.:.	0/1:31.78:224,6:0.026:77,1:147,5:230:133,91,4,2:104,120,3,3
+chr9	133230250	.	C	T	.	PASS	DP=118;FractionInformativeReads=0.992;MQ=42.43;NLOD=107.2;TLOD=104.58	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:107.2:59,0:0:25,0:34,0:59:.:.	0/1:104.58:33,25:0.431:11,5:22,20:58:11,22,7,18:21,12,13,12
+chr10	24910147	.	G	T	.	PASS	DP=147;FractionInformativeReads=0.986;MQ=37.17;NLOD=91.31;TLOD=89.44	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:91.31:44,0:0:18,0:26,0:44:.:.	0/1:89.44:59,42:0.416:26,13:33,29:101:21,38,18,24:30,29,25,17
+chr10	34649036	.	A	G	.	PASS	DP=247;FractionInformativeReads=1;MQ=48.74;NLOD=41.06;TLOD=20.01	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:41.06:84,0:0:32,0:52,0:84:.:.	0/1:20.01:157,6:0.037:60,3:97,3:163:136,21,6,0:69,88,3,3
+chr10	128797689	.	C	T	.	PASS	DP=339;FractionInformativeReads=0.997;MQ=48.99;NLOD=109.78;TLOD=108.59	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:109.78:113,0:0:42,0:71,0:113:.:.	0/1:108.59:176,49:0.218:65,17:111,32:225:114,62,27,22:85,91,21,28
+chr11	61090484	.	T	C	.	PASS	DP=125;FractionInformativeReads=1;MQ=48.89;NLOD=76.15;TLOD=67.83	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:76.15:42,0:0:22,0:20,0:42:.:.	0/1:67.83:56,27:0.325:24,6:32,21:83:55,1,26,1:25,31,7,20
+chr11	61111391	.	G	T	.	PASS	DP=276;FractionInformativeReads=1;MQ=47.23;NLOD=81.58;TLOD=70.33	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:81.58:105,0:0:60,0:45,0:105:.:.	0/1:70.33:144,27:0.158:65,14:79,13:171:50,94,9,18:69,75,16,11
+chr11	62782279	.	G	A	.	PASS	DP=209;FractionInformativeReads=1;MQ=49.63;NLOD=36.97;TLOD=25.53	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:36.97:66,0:0:28,0:38,0:66:.:.	0/1:25.53:139,4:0.028:48,1:91,3:143:102,37,2,2:53,86,1,3
+chr11	64880821	.	G	A	.	PASS	DP=325;FractionInformativeReads=0.997;MQ=48.57;NLOD=974.77;TLOD=172.2	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:974.77:112,0:0:54,0:58,0:112:.:.	0/1:172.2:138,74:0.349:66,34:72,40:212:94,44,51,23:72,66,39,35
+chr11	65269388	.	G	A	.	PASS	DP=183;FractionInformativeReads=1;MQ=52.1;NLOD=96.24;TLOD=85.47	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:96.24:45,0:0:20,0:25,0:45:.:.	0/1:85.47:88,50:0.362:35,19:53,31:138:44,44,25,25:45,43,20,30
+chr11	73073554	.	G	A	.	PASS	DP=43;FractionInformativeReads=1;MQ=39.88;NLOD=38.37;TLOD=32.14	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:38.37:24,0:0:10,0:14,0:24:.:.	0/1:32.14:14,5:0.263:1,2:13,3:19:12,2,4,1:3,11,1,4
+chr12	85677603	.	T	A	.	PASS	DP=52;FractionInformativeReads=1;MQ=46.33;NLOD=32.38;TLOD=23.6	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:32.38:21,0:0:6,0:15,0:21:.:.	0/1:23.6:22,9:0.29:8,2:14,7:31:5,17,0,9:17,5,7,2
+chr14	20502435	.	A	C	.	PASS	DP=251;FractionInformativeReads=1;MQ=48.05;NLOD=974.77;TLOD=149.86	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:974.77:90,0:0:50,0:40,0:90:.:.	0/1:149.86:101,60:0.373:41,25:60,35:161:61,40,39,21:45,56,32,28
+chr14	47311175	.	G	T	.	PASS	DP=174;FractionInformativeReads=1;MQ=47.49;NLOD=37.21;TLOD=25.98	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:37.21:65,0:0:30,0:35,0:65:.:.	0/1:25.98:104,5:0.046:33,0:71,5:109:40,64,3,2:65,39,2,3
+chr14	75295961	.	G	A	.	PASS	DP=124;FractionInformativeReads=1;MQ=46.97;NLOD=33.65;TLOD=17.53	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:33.65:48,0:0:19,0:29,0:48:.:.	0/1:17.53:73,3:0.039:24,1:49,2:76:54,19,2,1:33,40,2,1
+chr14	106110282	.	T	A	.	PASS	DP=223;FractionInformativeReads=1;MQ=45.61;NLOD=105.74;TLOD=101.89	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:105.74:93,0:0:37,0:56,0:93:.:.	0/1:101.89:96,34:0.262:33,10:63,24:130:61,35,25,9:44,52,13,21
+chr14	106329408	.	C	T	.	PASS	DP=127;FractionInformativeReads=1;MQ=45.17;NLOD=89.52;TLOD=78.88	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:89.52:52,0:0:17,0:35,0:52:.:.	0/1:78.88:50,25:0.333:12,8:38,17:75:44,6,23,2:14,36,8,17
+chr14	106329452	.	T	C	.	PASS	DP=150;FractionInformativeReads=1;MQ=44.01;NLOD=974.77;TLOD=120.14	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:974.77:66,0:0:27,0:39,0:66:.:.	0/1:120.14:53,31:0.369:12,10:41,21:84:41,12,19,12:20,33,14,17
+chr14	106641578	.	C	G	.	PASS	DP=184;FractionInformativeReads=0.995;MQ=43.3;NLOD=69.2;TLOD=57.94	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:69.2:86,0:0:35,0:51,0:86:.:.	0/1:57.94:82,15:0.155:31,6:51,9:97:66,16,13,2:31,51,6,9
+chr14	106641611	.	C	T	.	PASS	DP=270;FractionInformativeReads=0.996;MQ=44.54;NLOD=111.33;TLOD=115.53	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB:PS	0|0:111.33:119,0:0:54,0:65,0:119:.:.:106184949	0|1:115.53:117,33:0.22:39,9:78,24:150:82,35,28,5:50,67,14,19:106184949
+chr14	106641613	.	C	G	.	PASS	DP=272;FractionInformativeReads=0.993;MQ=44.38;NLOD=105.06;TLOD=116.88	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB:PS	0|0:105.06:120,1:0.008:55,1:65,0:121:.:.:106184949	0|1:116.88:115,34:0.228:39,9:76,25:149:80,35,28,6:50,65,15,19:106184949
+chr14	106641614	.	C	T	.	PASS	DP=272;FractionInformativeReads=0.993;MQ=44.38;NLOD=974.77;TLOD=125.97	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB:PS	0|0:974.77:120,0:0:55,0:65,0:120:.:.:106184949	0|1:125.97:116,34:0.227:40,9:76,25:150:81,35,28,6:49,67,15,19:106184949
+chr14	106641667	.	G	C	.	PASS	DP=352;FractionInformativeReads=1;MQ=45.88;NLOD=974.77;TLOD=182.68	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB:PS	0|0:974.77:144,0:0:68,0:76,0:144:.:.:106185005	0|1:182.68:142,66:0.317:55,19:87,47:208:96,46,46,20:71,71,31,35:106185005
+chr14	106641689	.	A	G	.	PASS	DP=371;FractionInformativeReads=0.997;MQ=46.13;NLOD=974.77;TLOD=178.94	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB:PS	0|0:974.77:149,0:0:70,0:79,0:149:.:.:106185005	0|1:178.94:153,68:0.308:61,21:92,47:221:104,49,41,27:78,75,34,34:106185005
+chr14	106641725	.	C	T	.	PASS	DP=364;FractionInformativeReads=0.997;MQ=45.48;NLOD=974.77;TLOD=166.01	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB:PS	0|0:974.77:153,0:0:70,0:83,0:153:.:.:106185063	0|1:166.01:151,59:0.281:61,19:90,40:210:82,69,30,29:84,67,30,29:106185063
+chr14	106641728	.	T	C	.	PASS	DP=358;FractionInformativeReads=0.997;MQ=45.53;NLOD=974.77;TLOD=157.36	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB:PS	0|0:974.77:150,0:0:69,0:81,0:150:.:.:106185063	0|1:157.36:150,57:0.275:62,19:88,38:207:79,71,28,29:83,67,28,29:106185063
+chr14	106641752	.	G	A	.	PASS	DP=324;FractionInformativeReads=0.997;MQ=45.04;NLOD=974.77;TLOD=164.22	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB:PS	0|0:974.77:140,0:0:67,0:73,0:140:.:.:106185063	0|1:164.22:138,45:0.246:55,17:83,28:183:61,77,17,28:76,62,25,20:106185063
+chr14	106641755	.	G	A	.	PASS	DP=314;FractionInformativeReads=0.997;MQ=44.87;NLOD=974.77;TLOD=118.86	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB:PS	0|0:974.77:136,1:0.007:64,1:72,0:137:.:.:106185063	0|1:118.86:134,42:0.239:54,16:80,26:176:62,72,15,27:70,64,25,17:106185063
+chr14	106641758	.	A	G	.	PASS	DP=306;FractionInformativeReads=0.997;MQ=44.8;NLOD=974.77;TLOD=159.91	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB:PS	0|0:974.77:134,0:0:64,0:70,0:134:.:.:106185063	0|1:159.91:128,43:0.251:52,16:76,27:171:58,70,16,27:64,64,25,18:106185063
+chr14	106641764	.	G	T	.	PASS	DP=295;FractionInformativeReads=0.997;MQ=45.45;NLOD=974.77;TLOD=141.68	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB:PS	0|0:974.77:124,0:0:61,0:63,0:124:.:.:106185063	0|1:141.68:126,44:0.259:52,17:74,27:170:55,71,16,28:65,61,25,19:106185063
+chr14	106641783	.	G	A	.	PASS	DP=265;FractionInformativeReads=0.996;MQ=46.38;NLOD=108.12;TLOD=107.42	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB:PS	0|0:108.12:105,0:0:47,0:58,0:105:.:.:106185063	0|1:107.42:116,43:0.27:54,17:62,26:159:40,76,14,29:62,54,26,17:106185063
+chr14	106641787	.	C	T	.	PASS	DP=259;FractionInformativeReads=1;MQ=46.52;NLOD=104.64;TLOD=100.93	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB:PS	0|0:104.64:103,0:0:47,0:56,0:103:.:.:106185063	0|1:100.93:115,41:0.263:54,15:61,26:156:36,79,14,27:57,58,26,15:106185063
+chr14	106641822	.	T	A	.	PASS	DP=215;FractionInformativeReads=0.986;MQ=47.8;NLOD=110.89;TLOD=99.81	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:110.89:77,0:0:36,0:41,0:77:.:.	0/1:99.81:96,39:0.289:46,15:50,24:135:23,73,15,24:53,43,23,16
+chr14	106641867	.	C	A	.	PASS	DP=150;FractionInformativeReads=1;MQ=47.68;NLOD=90.01;TLOD=78.88	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:90.01:55,0:0:25,0:30,0:55:.:.	0/1:78.88:66,29:0.305:29,13:37,16:95:21,45,10,19:34,32,18,11
+chr14	106641981	.	C	T	.	PASS	DP=45;FractionInformativeReads=1;MQ=41.69;NLOD=21.76;TLOD=40.41	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:21.76:20,0:0:16,0:4,0:20:.:.	0/1:40.41:16,9:0.36:8,3:8,6:25:9,7,5,4:7,9,7,2
+chr14	107178874	.	A	C	.	PASS	DP=173;FractionInformativeReads=0.815;MQ=27.32;NLOD=974.77;TLOD=131.75	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:974.77:56,0:0:23,0:33,0:56:.:.	0/1:131.75:42,43:0.506:14,20:28,23:85:40,2,41,2:12,30,22,21
+chr19	15795950	.	G	A	.	PASS	DP=83;FractionInformativeReads=0.988;MQ=47.32;NLOD=33.45;TLOD=21.59	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:33.45:31,0:0:15,0:16,0:31:.:.	0/1:21.59:46,5:0.098:21,3:25,2:51:35,11,2,3:20,26,2,3
+chr19	18728205	.	G	A	.	PASS	DP=436;FractionInformativeReads=0.998;MQ=48.51;NLOD=58.56;TLOD=47.33	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:58.56:151,0:0:75,0:76,0:151:.:.	0/1:47.33:263,21:0.074:114,4:149,17:284:157,106,15,6:130,133,8,13
+chr19	42880647	.	C	T	.	PASS	DP=40;FractionInformativeReads=1;MQ=43.47;NLOD=23.69;TLOD=32.02	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:23.69:19,0:0:9,0:10,0:19:.:.	0/1:32.02:15,6:0.286:6,1:9,5:21:9,6,4,2:6,9,3,3
+chr19	54578197	.	G	A	.	PASS	DP=304;FractionInformativeReads=0.997;MQ=50.69;NLOD=974.77;TLOD=126.01	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:974.77:87,0:0:41,0:46,0:87:.:.	0/1:126.01:149,67:0.31:65,24:84,43:216:86,63,41,26:78,71,32,35
+chr20	43943060	.	G	A	.	PASS	DP=84;FractionInformativeReads=1;MQ=48.55;NLOD=48.73;TLOD=39.18	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:48.73:29,0:0:17,0:12,0:29:.:.	0/1:39.18:42,13:0.236:23,5:19,8:55:39,3,11,2:24,18,7,6
+chr20	44515299	.	C	T	.	PASS	DP=148;FractionInformativeReads=1;MQ=50.78;NLOD=52.14;TLOD=40.91	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:52.14:42,0:0:19,0:23,0:42:.:.	0/1:40.91:87,19:0.179:44,8:43,11:106:47,40,10,9:50,37,13,6
+chr22	23230296	.	G	A	.	PASS	DP=103;FractionInformativeReads=1;MQ=45.02;NLOD=70.53;TLOD=59.3	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:70.53:45,0:0:24,0:21,0:45:.:.	0/1:59.3:41,17:0.293:24,9:17,8:58:14,27,6,11:19,22,10,7
+chr22	23230298	.	A	C	.	PASS	DP=101;FractionInformativeReads=1;MQ=44.68;NLOD=34.03;TLOD=21.56	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:34.03:45,0:0:24,0:21,0:45:.:.	0/1:21.56:53,3:0.054:32,1:21,2:56:18,35,2,1:27,26,0,3
+chr22	23230317	.	G	A	.	PASS	DP=92;FractionInformativeReads=1;MQ=43.34;NLOD=86.79;TLOD=76.63	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:86.79:44,0:0:23,0:21,0:44:.:.	0/1:76.63:29,19:0.396:17,12:12,7:48:6,23,6,13:10,19,9,10
+chr22	23230364	.	C	T	.	PASS	DP=53;FractionInformativeReads=1;MQ=41.21;NLOD=44.97;TLOD=50.89	GT:SQ:AD:AF:F1R2:F2R1:DP:SB:MB	0/0:44.97:28,0:0:14,0:14,0:28:.:.	0/1:50.89:15,10:0.4:6,6:9,4:25:6,9,4,6:7,8,2,8
