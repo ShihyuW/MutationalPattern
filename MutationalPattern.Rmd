@@ -305,9 +305,9 @@ seqlevelsStyle(regions) <- "UCSC"
 
 ```{r}
 library(rtracklayer)
-r1 <- import("/Users/shihyu/Git/Mutational_Pattern/region1.bed")
-r2 <- import("/Users/shihyu/Git/Mutational_Pattern/region2.bed")
-r3 <- import("/Users/shihyu/Git/Mutational_Pattern/region3.bed")
+r1 <- import("/Users/shihyu/Git/MutationalPattern/Test_files/region1.bed")
+r2 <- import("/Users/shihyu/Git/MutationalPattern/Test_files/region2.bed")
+r3 <- import("/Users/shihyu/Git/MutationalPattern/Test_files/region3.bed")
 
 regions <- GRangesList(r1,r2,r3)
 names(regions) <- c('region1','region2','region3')
